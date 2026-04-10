@@ -6,7 +6,7 @@ import { MdArrowBack } from "react-icons/md";
 import { BiBell } from 'react-icons/bi';
 import Swal from "sweetalert2"
 import Avatar from './avatar';
-import Postcard from './postcard';
+import Postcard from './Postcard';
 import Hamburger from 'hamburger-react'
 const BASE_URL = import.meta.env.VITE_API_URL;
 
