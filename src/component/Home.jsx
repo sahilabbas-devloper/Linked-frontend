@@ -213,6 +213,17 @@ function Home() {
                   <Avatar user={name} size={44} />
                 </Link>
 
+               
+              <div className=' gap-1 flex items-center md:hidden '>
+                <div className='bg-[#540cdb2a] w-6 h-6 rounded-lg shadow-xl flex items-center justify-center font-semibold text-white'>
+                  in
+                </div>
+
+                <button className='text-gray-200 font-semibold text-md'>
+                  LinkedUp
+                </button>
+              </div>
+
                 <div className='flex items-center'>
                   <Link to={"/notification"}
                     className='text-2xl'
