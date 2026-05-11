@@ -8,6 +8,7 @@ import Swal from "sweetalert2"
 import Avatar from './avatar';
 import Postcard from './Postcard';
 import Hamburger from 'hamburger-react'
+import Loader from './Loder';
 const BASE_URL = import.meta.env.VITE_API_URL;
 
 
@@ -29,6 +30,7 @@ function Home() {
   useEffect(() => {
     if (called.current) return;
     called.current = true;
+
 
     const fun = async () => {
       try {
@@ -77,6 +79,7 @@ function Home() {
 
 
   }, [])
+
 
 
 
@@ -156,7 +159,7 @@ function Home() {
                   <div>
                     <FaHandsHelping />
                   </div>
-                   <Link to={"/Profile"} className='text-lg font-semibold'>My post</Link>
+                  <Link to={"/Profile"} className='text-lg font-semibold'>My post</Link>
                 </div>
 
 
@@ -213,16 +216,16 @@ function Home() {
                   <Avatar user={name} size={44} />
                 </Link>
 
-               
-              <div className=' gap-1 flex items-center md:hidden '>
-                <div className='bg-[#540cdb2a] w-6 h-6 rounded-lg shadow-xl flex items-center justify-center font-semibold text-white'>
-                  in
-                </div>
 
-                <button className='text-gray-200 font-semibold text-md'>
-                  LinkedUp
-                </button>
-              </div>
+                <div className=' gap-1 flex items-center md:hidden '>
+                  <div className='bg-[#540cdb2a] w-6 h-6 rounded-lg shadow-xl flex items-center justify-center font-semibold text-white'>
+                    in
+                  </div>
+
+                  <button className='text-gray-200 font-semibold text-md'>
+                    LinkedUp
+                  </button>
+                </div>
 
                 <div className='flex items-center'>
                   <Link to={"/notification"}
@@ -231,12 +234,12 @@ function Home() {
                     <BiBell />
                   </Link>
 
-                  
-                    <Hamburger toggled={isopen} toggle={setopen}/>
 
-                  </div>
+                  <Hamburger toggled={isopen} toggle={setopen} />
 
-                
+                </div>
+
+
 
 
 
@@ -251,10 +254,14 @@ function Home() {
 
               {/*cards/*/}
 
-              {
-                posts.map((post) => (
 
-                  <Postcard key={post._id} post={post} Authuser={name} />
+
+              {posts.length === 0 ? (<Loader />
+               )
+               :
+                (posts.map((post) => (
+
+                  <Postcard key={post._id} post={post} Authuser={name} />)
                 ))}
 
 
